@@ -1,0 +1,6 @@
+com\inventory\config\SwaggerConfig.class
+com\inventory\model\Inventory.class
+com\inventory\repository\InventoryRepository.class
+com\inventory\InventoryApplication.class
+com\inventory\controller\InventoryController.class
+com\inventory\dao\InventoryDAO.class
