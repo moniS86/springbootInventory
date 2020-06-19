@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.inventory</groupId>
 	<artifactId>springbootinventory</artifactId>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>springbootinventory Maven Webapp</name>
 	<url>http://maven.apache.org</url>
@@ -12,14 +12,14 @@
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>2.2.1.RELEASE</version>
-		<relativePath /> <!-- lookup parent from repository -->
+		<relativePath /> 
 	</parent>
 	<dependencies>
 		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>3.8.1</version>
-			<scope>test</scope>
+		  <groupId>junit</groupId>  
+		  <artifactId>junit-dep</artifactId>
+		  <version>4.8.2</version>
+		  <scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -34,19 +34,29 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-		<dependency>
-			<groupId>org.springframework.data</groupId>
-			<artifactId>spring-data-redis</artifactId>
+		
+			<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-cache</artifactId>
 		</dependency>
-		<dependency>
-			<groupId>redis.clients</groupId>
-			<artifactId>jedis</artifactId>
-		</dependency>
+		
 		<dependency>
 			<groupId>io.springfox</groupId>
 			<artifactId>springfox-swagger2</artifactId>
 			<version>2.6.1</version>
 			<scope>compile</scope>
+		</dependency>
+		
+		<dependency>
+		    <groupId>org.projectlombok</groupId>
+		    <artifactId>lombok</artifactId>
+		    <version>1.18.12</version>
+		    <scope>provided</scope>
+		</dependency>
+		<dependency>
+		    <groupId>org.slf4j</groupId>
+		    <artifactId>slf4j-api</artifactId>
+		    <version>1.7.25</version>
 		</dependency>
 		<dependency>
 			<groupId>io.springfox</groupId>
@@ -66,11 +76,16 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-				<dependency>
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-core</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-security</artifactId>
 		
-		</dependency>
+		</dependency> 
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
@@ -79,7 +94,36 @@
 	</dependencies>
 	<build>
 		<finalName>springbootinventory</finalName>
+		 <sourceDirectory>src/main/java</sourceDirectory>
+    	<testSourceDirectory>src/test/java</testSourceDirectory>
 		<plugins>
+		<plugin>
+		<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-maven-plugin</artifactId>
+		</plugin>
+		<plugin>
+		<groupId>com.spotify</groupId>
+			<artifactId>dockerfile-maven-plugin</artifactId>
+			<version>1.4.10</version>
+			<executions>
+			<execution>
+			<id>default</id>
+			<goals>
+			<goal>build</goal>
+			<goal>push</goal>
+			</goals>
+			</execution>
+			</executions>
+			<configuration>
+			<repository>monis86/${project.artifactId}</repository>
+			<tag>${project.version}</tag>
+			<pullNewerImage>false</pullNewerImage>
+			<skipDockerInfo>true</skipDockerInfo>
+			<buildArgs>
+   			   <JAR_FILE>${project.build.finalName}.jar</JAR_FILE>
+    		</buildArgs>
+			</configuration>
+		</plugin>
 		<plugin>
 			<groupId>org.sonarsource.scanner.maven</groupId>
 			<artifactId>sonar-maven-plugin</artifactId>
