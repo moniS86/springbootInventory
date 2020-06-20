@@ -1,5 +1,7 @@
 package com.ims.inventory.model;
 
+import java.io.Serializable;
+
 import javax.persistence.Entity;
 import javax.persistence.EntityListeners;
 import javax.persistence.GeneratedValue;
@@ -15,10 +17,10 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "Inventories")
+@Table(name = "inventories")
 @EntityListeners(AuditingEntityListener.class)
 @NoArgsConstructor
-public @Data @AllArgsConstructor class Inventory{
+public @Data @AllArgsConstructor class Inventory implements Serializable{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
