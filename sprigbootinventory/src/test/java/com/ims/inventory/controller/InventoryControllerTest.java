@@ -51,7 +51,7 @@ public class InventoryControllerTest {
 		inv.setDescription("Prod6 description");
 		String jsonRequest = om.writeValueAsString(inv);
 		MvcResult result = (MvcResult) mockMvc
-				.perform(post("/company/inventories").content(jsonRequest).content(MediaType.APPLICATION_JSON_VALUE))
+				.perform(post("/company/inventories").content(jsonRequest).contentType(MediaType.APPLICATION_JSON_VALUE))
 				 .andExpect((ResultMatcher) status().isOk()).andReturn();
 		String resultContent = result.getResponse().getContentAsString();
 		Assert.assertTrue(resultContent, true);
@@ -87,7 +87,7 @@ public class InventoryControllerTest {
 		inv.setDescription("Prod6 description");
 		String jsonRequest = om.writeValueAsString(inv);
 		MvcResult result = (MvcResult) mockMvc
-				.perform(put("/company/inventories/6").content(jsonRequest).content(MediaType.APPLICATION_JSON_VALUE))
+				.perform(put("/company/inventories/7").content(jsonRequest).contentType(MediaType.APPLICATION_JSON_VALUE))
 				 .andExpect((ResultMatcher) status().isOk()).andReturn();
 		String resultContent = result.getResponse().getContentAsString();
 		Assert.assertTrue(resultContent, true);
@@ -98,7 +98,7 @@ public class InventoryControllerTest {
 		Inventory inv = new Inventory();
 		String jsonRequest = om.writeValueAsString(inv);
 		MvcResult result = (MvcResult) mockMvc
-				.perform(delete("/company/inventories/6").content(jsonRequest).content(MediaType.APPLICATION_JSON_VALUE))
+				.perform(delete("/company/inventories/8").content(jsonRequest).contentType(MediaType.APPLICATION_JSON_VALUE))
 		 .andExpect((ResultMatcher) status().isOk()).andReturn();
 		String resultContent = result.getResponse().getContentAsString();
 		Assert.assertTrue(resultContent, true);

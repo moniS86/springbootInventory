@@ -2,5 +2,5 @@ projectKey=com.inventory:springbootinventory
 serverUrl=http://localhost:9000
 serverVersion=8.3.1.34397
 dashboardUrl=http://localhost:9000/dashboard?id=com.inventory%3Aspringbootinventory
-ceTaskId=AXKfF9adISDDl4Tsob3g
-ceTaskUrl=http://localhost:9000/api/ce/task?id=AXKfF9adISDDl4Tsob3g
+ceTaskId=AXLvClRk0O_EAvH3FpiJ
+ceTaskUrl=http://localhost:9000/api/ce/task?id=AXLvClRk0O_EAvH3FpiJ

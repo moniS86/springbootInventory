@@ -1,0 +1,6 @@
+com\ims\inventory\repository\InventoryDAOTest.class
+com\ims\inventory\exception\ResourceNotFoundExceptionTest.class
+com\ims\inventory\dto\InventoryDTOTest.class
+com\ims\inventory\model\InventoryTest.class
+com\ims\inventory\controller\InventoryControllerTest.class
+com\ims\inventory\service\InventoryServiceTest.class

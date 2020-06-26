@@ -1,6 +1,11 @@
-com\inventory\config\SwaggerConfig.class
-com\inventory\model\Inventory.class
-com\inventory\repository\InventoryRepository.class
-com\inventory\InventoryApplication.class
-com\inventory\controller\InventoryController.class
-com\inventory\dao\InventoryDAO.class
+com\ims\inventory\service\InventoryService.class
+com\ims\infrastructure\inventory\repository\InventoryDAO.class
+com\ims\inventory\config\WebConfig.class
+com\ims\inventory\exception\ResourceNotFoundException.class
+com\ims\inventory\model\Inventory.class
+com\ims\inventory\exception\InventoryException.class
+com\ims\inventory\dto\InventoryDTO.class
+com\ims\inventory\config\SwaggerConfig.class
+com\ims\infrastructure\inventory\repository\InventoryRepository.class
+com\ims\Application.class
+com\ims\inventory\controller\InventoryController.class
